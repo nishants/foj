@@ -15,12 +15,14 @@ public class functionTest {
   @Test
   public void supportForHash() {
     HashMap map = new HashMap();
-    function function = function(() -> {
+    function callback = function(() -> {
       map.put("invoked", true);
     });
+
     assertThat(map.get("invoked"), is(nullValue()));
 
-    function.call();
+    callback.call(1,2);
+
     assertThat(map.get("invoked"), is(true));
   }
 

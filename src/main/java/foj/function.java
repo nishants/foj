@@ -1,17 +1,21 @@
 package foj;
 
 public class function {
-  private final Runnable runnable;
+  private final AnyArg runnable;
 
-  public function(Runnable runnable) {
+  public function(AnyArg runnable) {
     this.runnable = runnable;
   }
 
-  public void call(){
+  public void call(Object...a){
     runnable.run();
   }
-  public static function function(Runnable runnable){
+
+  public static function function(AnyArg runnable){
     return new function(runnable);
   }
 
+  public static interface AnyArg{
+    public void run();
+  }
 }
