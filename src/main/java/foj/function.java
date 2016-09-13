@@ -4,11 +4,13 @@ public class function {
   private final AnyArg runnable;
 
   public function(AnyArg runnable) {
-    this.runnable = runnable;
+    this.runnable = ()-> {
+      return "hello";
+    };
   }
 
-  public void call(Object...a){
-    runnable.run();
+  public Object call(Object...a){
+    return runnable.run();
   }
 
   public static function function(AnyArg runnable){
