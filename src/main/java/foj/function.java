@@ -5,9 +5,7 @@ public class function {
   private  NoArg noArg;
 
   public function(AnyArg runnable) {
-    this.runnable = (Object...args)-> {
-      return "hello";
-    };
+    this.runnable = runnable;
   }
 
   public function(NoArg runnable) {
@@ -18,8 +16,8 @@ public class function {
     return noArg.run();
   }
 
-  public Object call(Object...a){
-    return runnable.run();
+  public Object call(Object...args){
+    return runnable.run(args);
   }
 
   public static function function(AnyArg runnable){
