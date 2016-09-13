@@ -26,14 +26,12 @@ public class functionTest {
 
     assertThat(map.get("invoked"), is(true));
   }
+
   @Test
   public void supportForHash() {
-
-    function callback = function(() -> {
-      return "hello";
+    function callback = function((args) -> {
+      return args[0];
     });
-
-    assertThat(callback.call(1, 2), is("hello"));
+    assertThat(callback.call("hello", "bye"), is("hello"));
   }
-
 }
