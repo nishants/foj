@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 public class functionTest {
 
   @Test
-  public void supportForHash() {
+  public void shouldInvokeFunctionOnCall() {
     HashMap map = new HashMap();
 
     function callback = function(() -> {
@@ -24,8 +24,16 @@ public class functionTest {
 
     Object result = callback.call(1, 2);
 
-    assertThat(result, is("hello"));
-//    assertThat(map.get("invoked"), is(true));
+    assertThat(map.get("invoked"), is(true));
+  }
+  @Test
+  public void supportForHash() {
+
+    function callback = function(() -> {
+      return "hello";
+    });
+
+    assertThat(callback.call(1, 2), is("hello"));
   }
 
 }
