@@ -16,6 +16,6 @@ public class function {
   }
 
   public static interface AnyArg{
-    public void run();
+    public Object run();
   }
 }
