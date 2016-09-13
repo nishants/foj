@@ -22,8 +22,7 @@ public class functionTest {
 
     assertThat(map.get("invoked"), is(nullValue()));
 
-    Object result = callback.call(1, 2);
-
+    callback.call(1, 2);
     assertThat(map.get("invoked"), is(true));
   }
 
