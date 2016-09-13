@@ -36,8 +36,8 @@ public class functionTest {
   @Test
   public void noReturnType() {
     function callback = function((args) -> {
-      return args[0];
+      return args[1];
     });
-    assertThat(callback.call("hello", "bye"), is("hello"));
+    assertThat(callback.call("hello", "bye"), is("bye"));
   }
 }
