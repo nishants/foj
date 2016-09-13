@@ -16,18 +16,25 @@ public class functionTest {
   public void shouldInvokeFunctionOnCall() {
     HashMap map = new HashMap();
 
-    function callback = function(() -> {
+    function callback = function((args) -> {
       return map.put("invoked", true);
     });
 
     assertThat(map.get("invoked"), is(nullValue()));
 
-    callback.call(1, 2);
+    callback.call();
     assertThat(map.get("invoked"), is(true));
   }
 
   @Test
   public void supportForHash() {
+    function callback = function((args) -> {
+      return args[0];
+    });
+    assertThat(callback.call("hello", "bye"), is("hello"));
+  }
+  @Test
+  public void noReturnType() {
     function callback = function((args) -> {
       return args[0];
     });
