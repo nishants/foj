@@ -6,14 +6,14 @@ import java.util.Map;
 
 public class datafun {
 
-  public static boolean iF(Object[] array){
-    return iF(array.length);
+  public static boolean exists(Object[] array){
+    return exists(array.length);
   }
-  public static boolean iF(Object bool){
+  public static boolean exists(Object bool){
     return bool.equals(new Boolean(true));
   }
   public static boolean not(Object value){
-    return !iF(value);
+    return !exists(value);
   }
 
   public static <E> E create(Object...params){
@@ -57,7 +57,7 @@ public class datafun {
       if(token.length > 1){
         map.put(token[0].trim(), _resolve(token[1].trim()));
       }
-//      Object o = iF(token) ? map.put(token[0], token[1]) : "";
+//      Object o = exists(token) ? map.put(token[0], token[1]) : "";
     }
     return map;
   }
